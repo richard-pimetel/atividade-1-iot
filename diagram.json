@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -118.2, "left": -429.2, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -308.86,
+      "left": -121.1,
+      "rotate": 90,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 116.8,
+      "left": -235.8,
+      "rotate": 180,
+      "attrs": { "color": "green", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -6.2,
+      "left": -250.45,
+      "rotate": 270,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 107.2,
+      "left": -168.6,
+      "rotate": 180,
+      "attrs": { "color": "yellow", "flip": "" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 107.2,
+      "left": -92.2,
+      "rotate": 180,
+      "attrs": { "color": "red", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -6.2,
+      "left": -173.65,
+      "rotate": 270,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -6.2,
+      "left": -106.45,
+      "rotate": 270,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "r1:1", "bb1:28b.i", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:28t.e", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:35b.i", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:35t.e", "", [ "$bb" ] ],
+    [ "led3:A", "r2:1", "green", [ "v0" ] ],
+    [ "led2:A", "r1:1", "gold", [ "v0" ] ],
+    [ "led1:A", "r3:1", "green", [ "v0" ] ],
+    [ "r3:2", "esp:16", "green", [ "h0" ] ],
+    [ "esp:GND.3", "bb1:bn.32", "black", [ "v0" ] ],
+    [ "r3:1", "bb1:20b.i", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:20t.e", "", [ "$bb" ] ],
+    [ "led3:C", "bb1:bn.29", "black", [ "v0" ] ],
+    [ "led2:C", "bb1:bn.22", "black", [ "v0" ] ],
+    [ "led1:C", "bb1:bn.16", "black", [ "v0" ] ],
+    [ "r1:2", "esp:17", "gold", [ "h0" ] ],
+    [ "r2:2", "esp:18", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
